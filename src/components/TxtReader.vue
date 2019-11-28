@@ -31,12 +31,12 @@ export default class TxtReader extends Vue {
 .text-reader {
   position: relative;
   overflow: hidden;
-  display: inline-block;
+  display: flex;
 
-  border: 2px solid black;
+  /*border: 2px solid black;
   background-color: lightgrey;
   border-radius: 10px;
-  padding: 8px 12px;
+  padding: 8px 12px;*/
   cursor: pointer;
 }
 .text-reader input {

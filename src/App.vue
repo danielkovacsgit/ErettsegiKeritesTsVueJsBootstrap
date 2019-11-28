@@ -1,49 +1,54 @@
 <template>
   <div id="app">
     <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="#">Linkek</b-navbar-brand>
+      <b-navbar-brand href="#">Linkek</b-navbar-brand>
 
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
-        <b-nav-item href="kerites.txt" download="file.txt">Kerítés.txt</b-nav-item>
-        <b-nav-item href="Kerítés_fel.pdf" target="_blank" >Kerítés feladat</b-nav-item>
-        <b-nav-item href="Kerítés_jav.pdf" target="_blank">Javítási útmutató</b-nav-item>
-      </b-navbar-nav>
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-        <b-navbar-nav right>
-            <b-nav-item href="https://github.com/danielkovacsgit/ErettsegiKeritesTsVueJsBootstrap" target="_blank">Forrás</b-nav-item>            
-            <b-nav-item href="https://github.com/nitslaszlo/JedlikVueJsStarter" target="_blank">SDK</b-nav-item>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item href="kerites.txt" download="file.txt">Kerítés.txt</b-nav-item>
+          <b-nav-item href="Kerítés_fel.pdf" target="_blank">Kerítés feladat</b-nav-item>
+          <b-nav-item href="Kerítés_jav.pdf" target="_blank">Javítási útmutató</b-nav-item>
         </b-navbar-nav>
-        <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">English</b-dropdown-item>
-          <b-dropdown-item href="#">Deutsch</b-dropdown-item>
-          <b-dropdown-item href="#">Magyar</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-
-    <TxtReader title="Kérem töltse fel a forrás (kerites.txt) állományt!" @load="txtSorai = $event" />
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <b-navbar-nav right>
+            <b-nav-item href="https://github.com/danielkovacsgit/ErettsegiKeritesTsVueJsBootstrap" target="_blank"
+              >Forrás</b-nav-item
+            >
+            <b-nav-item href="https://github.com/nitslaszlo/JedlikVueJsStarter" target="_blank">SDK</b-nav-item>
+          </b-navbar-nav>
+          <b-nav-item-dropdown text="Lang" right>
+            <b-dropdown-item href="#">English</b-dropdown-item>
+            <b-dropdown-item href="#">Deutsch</b-dropdown-item>
+            <b-dropdown-item href="#">Magyar</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+    <button type="button" class="btn btn-outline-primary btn-sm mx-auto mt-3 mb-3">
+      <TxtReader title="Kérem töltse fel a forrás (kerites.txt) állományt!" @load="txtSorai = $event" />
+    </button>
     <div v-if="mutat" id="megoldas">
-      <p>2. feladat<br />Az eladott telkek száma: {{ telkek.length }}</p>
-      <p>
-        3. feladat<br />A {{ utolsoTelek.oldal }} oldalon adták el az utolsó telket<br />
-        Az utolsó telek házszáma: {{ utolsoTelek.hazSzama }}
-      </p>
-      <p>4. feladat<br />A szomszédossal egyezik a kerítés színe: {{ ugyanOlyanSzinuKerites }}</p>
-      <p>
-        5. feladat<br />Adjon meg egy házszámot!
-        <input v-model="hazszamInputStr" type="number" min="1" max="117" /><br />
-        A kerírés színe / állapota: {{ keritesSzineAllapota }}<br />
-        Egy lehetséges festési szín: {{ lehetsegesFestesiSzin }}
+      <div class="p-3 mb-2 bg-info text-white">
+        <p>2. feladat<br />Az eladott telkek száma: {{ telkek.length }}</p>
+        <p>
+          3. feladat<br />A {{ utolsoTelek.oldal }} oldalon adták el az utolsó telket<br />
+          Az utolsó telek házszáma: {{ utolsoTelek.hazSzama }}
+        </p>
+        <p>4. feladat<br />A szomszédossal egyezik a kerítés színe: {{ ugyanOlyanSzinuKerites }}</p>
+        <p>
+          5. feladat<br />Adjon meg egy házszámot!
+          <input v-model="hazszamInputStr" type="number" min="1" max="117" /><br />
+          A kerírés színe / állapota: {{ keritesSzineAllapota }}<br />
+          Egy lehetséges festési szín: {{ lehetsegesFestesiSzin }}
+        </p>
+      </div>
+      <p v-if="mutat">
+        <TxtWriter title="utcakep.txt állomány mentése" :content="utcakep" filename="utcakep.txt" />
       </p>
     </div>
-    <p v-if="mutat">
-      <TxtWriter title="utcakep.txt állomány mentése" :content="utcakep" filename="utcakep.txt" />
-    </p>
     <!-- Megoldás DIV -->
 
     <!-- Nem a feladat része : -->
@@ -163,12 +168,12 @@ export default class App extends Vue {
   font-family: Courier;
 }
 
-#megoldas {
+/*#megoldas {
   background-color: lightgrey;
   padding: 0px 10px;
   border-radius: 10px;
   max-width: 600px;
-}
+}*/
 
 a {
   text-decoration: none;

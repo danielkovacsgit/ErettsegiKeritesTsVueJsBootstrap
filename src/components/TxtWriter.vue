@@ -35,10 +35,10 @@ export default class TxtWriter extends Vue {
 .text-writer {
   position: relative;
   overflow: hidden;
-  display: inline-block;
-  border: 2px solid black;
+  display: flex;
+  /*border: 2px solid black;
   background-color: lightgrey;
-  border-radius: 10px;
+  border-radius: 10px; */
   padding: 8px 12px;
   cursor: pointer;
 }
