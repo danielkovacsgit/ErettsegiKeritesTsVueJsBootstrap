@@ -15,7 +15,7 @@
       <b-navbar-nav class="ml-auto">
         <b-navbar-nav right>
             <b-nav-item href="https://github.com/danielkovacsgit/ErettsegiKeritesTsVueJsBootstrap" target="_blank">Forrás</b-nav-item>            
-            <b-nav-item href="https://github.com/nitslaszlo/JedlikVueJsStarter" target="_blank">SDK</b-nav-item>            
+            <b-nav-item href="https://github.com/nitslaszlo/JedlikVueJsStarter" target="_blank">SDK</b-nav-item>
         </b-navbar-nav>
         <b-nav-item-dropdown text="Lang" right>
           <b-dropdown-item href="#">English</b-dropdown-item>
