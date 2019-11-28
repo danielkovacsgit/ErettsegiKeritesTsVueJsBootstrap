@@ -1,13 +1,31 @@
 <template>
   <div id="app">
-    <p>
-      Linkek:
-      <a href="kerites.txt" download>kerites.txt</a>
-      <a href="Kerítés_fel.pdf" target="_blank">Feladat</a>
-      <a href="Kerítés_jav.pdf" target="_blank">Javítási</a>
-      <a href="https://github.com/nitslaszlo/ErettsegiKeritesTsVueJs" target="_blank">Forrás</a>
-      <a href="https://github.com/nitslaszlo/JedlikVueJsStarter" target="_blank">SDK</a>
-    </p>
+    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar-brand href="#">Linkek</b-navbar-brand>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <b-nav-item href="kerites.txt" download="file.txt">Kerítés.txt</b-nav-item>
+        <b-nav-item href="Kerítés_fel.pdf" target="_blank" >Kerítés feladat</b-nav-item>
+        <b-nav-item href="Kerítés_jav.pdf" target="_blank">Javítási útmutató</b-nav-item>
+      </b-navbar-nav>
+      <!-- Right aligned nav items -->
+      <b-navbar-nav class="ml-auto">
+        <b-navbar-nav right>
+            <b-nav-item href="https://github.com/danielkovacsgit/ErettsegiKeritesTsVueJsBootstrap" target="_blank">Forrás</b-nav-item>            
+            <b-nav-item href="https://github.com/nitslaszlo/JedlikVueJsStarter" target="_blank">SDK</b-nav-item>            
+        </b-navbar-nav>
+        <b-nav-item-dropdown text="Lang" right>
+          <b-dropdown-item href="#">English</b-dropdown-item>
+          <b-dropdown-item href="#">Deutsch</b-dropdown-item>
+          <b-dropdown-item href="#">Magyar</b-dropdown-item>
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
+
     <TxtReader title="Kérem töltse fel a forrás (kerites.txt) állományt!" @load="txtSorai = $event" />
     <div v-if="mutat" id="megoldas">
       <p>2. feladat<br />Az eladott telkek száma: {{ telkek.length }}</p>
