@@ -27,9 +27,8 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <button id="Gradient" class="btn btn-primary">Text</button>
-    <br />
-    <button type="button" class="btn btn-outline-primary btn-sm mx-auto mt-3 mb-3 btn">
+
+    <button type="button" class="btn btn-outline-primary btn-sm mx-auto m-3 btn">
       <TxtReader title="Kérem töltse fel a forrás (kerites.txt) állományt!" @load="txtSorai = $event" />
     </button>
     <div v-if="mutat" id="megoldas">
@@ -48,7 +47,7 @@
         </p>
       </div>
       <p v-if="mutat">
-        <button class="btn rounded btn-primary">
+        <button id="save" class="btn rounded btn-primary">
           <font-awesome-icon icon="save" class="mr-1" />
           <TxtWriter title="Fájl mentése" :content="utcakep" filename="utcakep.txt" />
         </button>
@@ -57,6 +56,8 @@
     <!-- Megoldás DIV -->
 
     <!-- Nem a feladat része : -->
+
+    <!-- -->
     <div v-if="mutat" id="egyebek">
       <pre>
 utcakep.txt fájl:
@@ -192,5 +193,27 @@ input[type="number"] {
 pre {
   font-size: 1.1em;
   margin: 0;
+}
+
+#save {
+  border: none;
+  background: #404040;
+  color: #ffffff !important;
+  font-weight: 100;
+  padding: 20px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+#save:hover {
+  color: #404040 !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px;
+  background: none;
+  box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.3s ease 0s;
 }
 </style>
