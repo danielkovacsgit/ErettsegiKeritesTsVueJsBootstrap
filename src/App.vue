@@ -27,11 +27,13 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <button type="button" class="btn btn-outline-primary btn-sm mx-auto mt-3 mb-3">
+    <button id="Gradient" class="btn btn-primary">Text</button>
+    <br />
+    <button type="button" class="btn btn-outline-primary btn-sm mx-auto mt-3 mb-3 btn">
       <TxtReader title="Kérem töltse fel a forrás (kerites.txt) állományt!" @load="txtSorai = $event" />
     </button>
     <div v-if="mutat" id="megoldas">
-      <div class="p-3 mb-2 bg-info text-white">
+      <div class="p-3 mb-2 bg-info text-white rounded">
         <p>2. feladat<br />Az eladott telkek száma: {{ telkek.length }}</p>
         <p>
           3. feladat<br />A {{ utolsoTelek.oldal }} oldalon adták el az utolsó telket<br />
@@ -46,7 +48,10 @@
         </p>
       </div>
       <p v-if="mutat">
-        <TxtWriter title="utcakep.txt állomány mentése" :content="utcakep" filename="utcakep.txt" />
+        <button class="btn rounded btn-primary">
+          <font-awesome-icon icon="save" class="mr-1" />
+          <TxtWriter title="Fájl mentése" :content="utcakep" filename="utcakep.txt" />
+        </button>
       </p>
     </div>
     <!-- Megoldás DIV -->
@@ -168,12 +173,12 @@ export default class App extends Vue {
   font-family: Courier;
 }
 
-/*#megoldas {
-  background-color: lightgrey;
+#megoldas {
+  /* background-color: lightgrey;*/
   padding: 0px 10px;
   border-radius: 10px;
-  max-width: 600px;
-}*/
+  max-width: 500px;
+}
 
 a {
   text-decoration: none;
