@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <div id="app" class="ff">
     <b-navbar toggleable="lg" type="dark" variant="info">
+      <font-awesome-icon icon="vuejs" class="mr-1" />
       <b-navbar-brand href="#">Linkek</b-navbar-brand>
-
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
@@ -19,11 +19,11 @@
             >
             <b-nav-item href="https://github.com/nitslaszlo/JedlikVueJsStarter" target="_blank">SDK</b-nav-item>
           </b-navbar-nav>
-          <b-nav-item-dropdown text="Lang" right>
+          <!-- <b-nav-item-dropdown text="Lang" right>
             <b-dropdown-item href="#">English</b-dropdown-item>
             <b-dropdown-item href="#">Deutsch</b-dropdown-item>
             <b-dropdown-item href="#">Magyar</b-dropdown-item>
-          </b-nav-item-dropdown>
+          </b-nav-item-dropdown> -->
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -31,7 +31,8 @@
     <button type="button" class="btn btn-outline-primary btn-sm mx-auto m-3 btn">
       <TxtReader title="Kérem töltse fel a forrás (kerites.txt) állományt!" @load="txtSorai = $event" />
     </button>
-    <div v-if="mutat" id="megoldas">
+
+    <div v-if="mutat" id="megoldas" class="ff">
       <div class="p-3 mb-2 bg-info text-white rounded">
         <p>2. feladat<br />Az eladott telkek száma: {{ telkek.length }}</p>
         <p>
@@ -58,15 +59,19 @@
     <!-- Nem a feladat része : -->
 
     <!-- -->
-    <div v-if="mutat" id="egyebek">
-      <pre>
-utcakep.txt fájl:
-{{ utcakep }}
-kerites.txt fájl:
-{{ txtSorai }}
-      </pre>
+      <div v-if="mutat" id="egyebek" class="">
+        <pre>
+          <div id="utcakep.txt" class="overflow-auto m-3">
+  utcakep.txt fájl:
+  {{ utcakep }}
+          </div>
+          <div id="kerites.txt">
+  kerites.txt fájl:
+  {{ txtSorai }}
+          </div>
+        </pre>
+      </div>
     </div>
-  </div>
 </template>
 
 <script lang="ts">
@@ -215,5 +220,11 @@ pre {
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.3s ease 0s;
+}
+#utcakep.txt{
+  overflow-y: scroll;
+}
+.ff{
+  font-family: Tahoma, Geneva, Verdana, sans-serif
 }
 </style>
