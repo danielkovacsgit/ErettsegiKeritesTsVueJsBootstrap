@@ -32,6 +32,9 @@
       <TxtReader title="Kérem töltse fel a forrás (kerites.txt) állományt!" @load="txtSorai = $event" />
     </button>
 
+    <b-container>
+      <b-row>
+        <b-col>
     <div v-if="mutat" id="megoldas" class="ff">
       <div class="p-3 mb-2 bg-info text-white rounded">
         <p>2. feladat<br />Az eladott telkek száma: {{ telkek.length }}</p>
@@ -54,24 +57,29 @@
         </button>
       </p>
     </div>
+    </b-col>
     <!-- Megoldás DIV -->
 
     <!-- Nem a feladat része : -->
 
     <!-- -->
+    <b-col>
       <div v-if="mutat" id="egyebek" class="">
         <pre>
           <div id="utcakep.txt" class="overflow-auto m-3">
   utcakep.txt fájl:
   {{ utcakep }}
           </div>
-          <div id="kerites.txt">
+          <div id="kerites.txt" class="w-75 p-3">
   kerites.txt fájl:
   {{ txtSorai }}
           </div>
         </pre>
       </div>
-    </div>
+      </b-col>
+      </b-row>
+    </b-container>
+  </div>
 </template>
 
 <script lang="ts">
