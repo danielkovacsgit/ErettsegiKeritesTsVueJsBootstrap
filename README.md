@@ -3,11 +3,12 @@ A 2018. október 25-i közismereti informatika érettségi programozási (Kerít
 Visual Studio Code fejlesztői környezettel, TypeScript nyelven, Vue.js keretrendszerrel.
 Mivel a kliens oldalon fut a program, így biztonsági okokból a forrásállományt fel kell tölteni,
 az utcakep.txt állományt le kell menteni.
+A fájl megtalálható Netlify-on is.
 
 Források az "src" mappában.
 
 ## netlify link a teszteléshez:
-https://agitated-torvalds-2495a4.netlify.com/
+https://hungry-wescoff-f817f5.netlify.com/
 
 
 ## Fejlesztői környezet kialakítása:
